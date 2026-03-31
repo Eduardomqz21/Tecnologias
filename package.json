@@ -1,0 +1,20 @@
+{
+  "name": "tecnologias-1",
+  "version": "1.0.0",
+  "description": "Presentacion tutorial de tecnologias web (HTML, frontend, backend con Node.js)",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "start": "node backend/src/server.js",
+    "dev": "node --watch backend/src/server.js"
+  },
+  "keywords": [
+    "tutorial",
+    "html",
+    "frontend",
+    "backend",
+    "nodejs",
+    "bootstrap"
+  ],
+  "author": "",
+  "license": "MIT"
+}
