@@ -73,6 +73,7 @@ Tecnologias-1/
 |-- frontend/
 |   `-- public/
 |       `-- index.html
+|       `-- html5-seleccion.html
 |-- docs/
 |   |-- 00-introduccion/
 |   |   `-- README.md
@@ -104,6 +105,9 @@ Tecnologias-1/
 - Una pagina HTML de prueba con Bootstrap que:
   - Muestra interfaz inicial
   - Consulta datos del backend usando `fetch()`
+- Una guia interactiva de HTML5 (sin JavaScript) en:
+  - `/html5-seleccion.html`
+  - Uso: clic en cada bloque para ver definicion y codigo copiable
 
 ## Proximos pasos sugeridos
 

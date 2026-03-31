@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia Interactiva de HTML5</title>
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --panel: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --line: #cbd5e1;
+        --code-bg: #0b1220;
+        --code-text: #e2e8f0;
+        --accent: #0369a1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #eff6ff 0%, var(--bg) 100%);
+      }
+
+      header,
+      footer {
+        background: #0f172a;
+        color: #f8fafc;
+        padding: 1.2rem;
+      }
+
+      header h1 {
+        margin: 0 0 0.4rem;
+        font-size: 1.6rem;
+      }
+
+      header p,
+      footer p {
+        margin: 0;
+        color: #cbd5e1;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.2rem;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 1rem;
+      }
+
+      nav,
+      section {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 1rem;
+      }
+
+      nav ul {
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      nav li {
+        margin-bottom: 0.45rem;
+      }
+
+      nav a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      section h2 {
+        margin-top: 0;
+        font-size: 1.35rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
+      }
+
+      .categoria {
+        margin-bottom: 1rem;
+      }
+
+      details {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0.6rem 0.8rem;
+        margin-bottom: 0.55rem;
+        background: #f8fafc;
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      pre {
+        margin: 0.6rem 0 0;
+        background: var(--code-bg);
+        color: var(--code-text);
+        padding: 0.7rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        white-space: pre;
+      }
+
+      code {
+        font-family: Consolas, "Courier New", monospace;
+      }
+
+      .nota {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .vista {
+        margin-top: 0.6rem;
+        border: 1px dashed #94a3b8;
+        border-radius: 8px;
+        padding: 0.7rem;
+        background: #ffffff;
+      }
+
+      .vista h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #0c4a6e;
+      }
+
+      .mini-layout {
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        padding: 0.45rem;
+      }
+
+      .mini-layout > * {
+        margin: 0.2rem 0;
+        padding: 0.25rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+      }
+
+      .demo-table {
+        border-collapse: collapse;
+      }
+
+      .demo-table th,
+      .demo-table td {
+        border: 1px solid #cbd5e1;
+        padding: 0.25rem 0.5rem;
+      }
+
+      @media (max-width: 960px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Guia Interactiva de HTML5</h1>
+      <p>
+        Haz clic en cada elemento para ver su definicion y un bloque de codigo listo para pegar.
+      </p>
+    </header>
+
+    <main>
+      <nav>
+        <h2>Indice</h2>
+        <ul>
+          <li><a href="#estructura">Estructura semantica</a></li>
+          <li><a href="#texto">Texto y contenido</a></li>
+          <li><a href="#listas">Listas</a></li>
+          <li><a href="#multimedia">Multimedia</a></li>
+          <li><a href="#tablas">Tablas</a></li>
+          <li><a href="#formularios">Formularios HTML5</a></li>
+          <li><a href="#interactivos">Interactivos y embebidos</a></li>
+        </ul>
+
+        <p class="nota">
+          Nota: aqui estan organizados los elementos HTML5 mas usados y los que normalmente se ven en clases,
+          practicas y entrevistas tecnicas.
+        </p>
+      </nav>
+
+      <article>
+        <section id="estructura" class="categoria">
+          <h2>1) Estructura semantica</h2>
+
+          <details>
+            <summary>&lt;header&gt;</summary>
+            <p>Encabezado de una pagina o seccion.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <div class="mini-layout">
+                <header>
+                  <h3>Mi sitio</h3>
+                </header>
+              </div>
+            </div>
+            <pre><code>&lt;header&gt;
+  &lt;h1&gt;Mi sitio&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;nav&gt;</summary>
+            <p>Bloque de navegacion principal.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <nav>
+                <a href="#">Inicio</a> |
+                <a href="#">Contacto</a>
+              </nav>
+            </div>
+            <pre><code>&lt;nav&gt;
+  &lt;a href="/inicio"&gt;Inicio&lt;/a&gt;
+  &lt;a href="/contacto"&gt;Contacto&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;main&gt;</summary>
+            <p>Contenido principal unico del documento.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <main class="mini-layout">
+                <h3>Contenido principal</h3>
+              </main>
+            </div>
+            <pre><code>&lt;main&gt;
+  &lt;h2&gt;Contenido principal&lt;/h2&gt;
+&lt;/main&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;section&gt;</summary>
+            <p>Agrupa contenido por tema.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <section class="mini-layout">
+                <h3>Noticias</h3>
+                <p>Actualizacion semanal.</p>
+              </section>
+            </div>
+            <pre><code>&lt;section&gt;
+  &lt;h2&gt;Noticias&lt;/h2&gt;
+  &lt;p&gt;Actualizacion semanal.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;article&gt;</summary>
+            <p>Contenido autonomo (post, noticia, tarjeta).</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <article class="mini-layout">
+                <h3>Articulo independiente</h3>
+                <p>Texto del articulo.</p>
+              </article>
+            </div>
+            <pre><code>&lt;article&gt;
+  &lt;h3&gt;Articulo independiente&lt;/h3&gt;
+  &lt;p&gt;Texto del articulo.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;aside&gt; y &lt;footer&gt;</summary>
+            <p>&lt;aside&gt; para contenido lateral. &lt;footer&gt; para cierre o pie.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <div class="mini-layout">
+                <aside>Enlaces relacionados</aside>
+                <footer>Copyright 2026</footer>
+              </div>
+            </div>
+            <pre><code>&lt;aside&gt;Enlaces relacionados&lt;/aside&gt;
+&lt;footer&gt;Copyright 2026&lt;/footer&gt;</code></pre>
+          </details>
+        </section>
+
+        <section id="texto" class="categoria">
+          <h2>2) Texto y contenido</h2>
+
+          <details>
+            <summary>Titulos &lt;h1&gt; ... &lt;h6&gt; y parrafo &lt;p&gt;</summary>
+            <p>Definen jerarquia del contenido y bloques de texto.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <h3>Titulo principal</h3>
+              <h4>Subtitulo</h4>
+              <p>Parrafo de ejemplo.</p>
+            </div>
+            <pre><code>&lt;h1&gt;Titulo principal&lt;/h1&gt;
+&lt;h2&gt;Subtitulo&lt;/h2&gt;
+&lt;p&gt;Parrafo de ejemplo.&lt;/p&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>Enfasis y semantica: &lt;strong&gt;, &lt;em&gt;, &lt;mark&gt;, &lt;small&gt;</summary>
+            <p>Resaltan importancia, enfasis, marca y texto secundario.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <p>
+                <strong>Importante</strong> y
+                <em>enfatizado</em> con
+                <mark>marca</mark> y
+                <small>texto pequeno</small>.
+              </p>
+            </div>
+            <pre><code>&lt;p&gt;
+  &lt;strong&gt;Importante&lt;/strong&gt; y
+  &lt;em&gt;enfatizado&lt;/em&gt; con
+  &lt;mark&gt;marca&lt;/mark&gt; y
+  &lt;small&gt;texto pequeno&lt;/small&gt;.
+&lt;/p&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>Cambios y posicion: &lt;del&gt;, &lt;ins&gt;, &lt;sub&gt;, &lt;sup&gt;</summary>
+            <p>Muestran eliminaciones/inserciones y subindice/superindice.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <p>Precio: <del>$100</del> <ins>$80</ins></p>
+              <p>H<sub>2</sub>O y m<sup>2</sup></p>
+            </div>
+            <pre><code>&lt;p&gt;Precio: &lt;del&gt;$100&lt;/del&gt; &lt;ins&gt;$80&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O y m&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>Citas y referencias: &lt;blockquote&gt;, &lt;q&gt;, &lt;cite&gt;, &lt;address&gt;</summary>
+            <p>Para citas largas/cortas, obra citada y datos de contacto.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <blockquote>Cita extensa.</blockquote>
+              <p>Como dijo <q>Aprender haciendo</q>.</p>
+              <p><cite>Manual Web</cite></p>
+              <address>equipo@ejemplo.com</address>
+            </div>
+            <pre><code>&lt;blockquote&gt;Cita extensa.&lt;/blockquote&gt;
+&lt;p&gt;Como dijo &lt;q&gt;Aprender haciendo&lt;/q&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;Manual Web&lt;/cite&gt;&lt;/p&gt;
+&lt;address&gt;equipo@ejemplo.com&lt;/address&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>Codigo y teclado: &lt;code&gt;, &lt;pre&gt;, &lt;kbd&gt;, &lt;samp&gt;, &lt;var&gt;</summary>
+            <p>Bloques para codigo, entrada por teclado, salida y variables.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <p>Pulsa <kbd>Ctrl</kbd> + <kbd>S</kbd></p>
+              <pre><code>const total = precio * cantidad;</code></pre>
+              <p><samp>Compilacion exitosa</samp></p>
+              <p><var>x</var> + <var>y</var></p>
+            </div>
+            <pre><code>&lt;p&gt;Pulsa &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;S&lt;/kbd&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const total = precio * cantidad;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;samp&gt;Compilacion exitosa&lt;/samp&gt;&lt;/p&gt;
+&lt;p&gt;&lt;var&gt;x&lt;/var&gt; + &lt;var&gt;y&lt;/var&gt;&lt;/p&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>Texto internacional: &lt;abbr&gt;, &lt;time&gt;, &lt;bdi&gt;, &lt;bdo&gt;, &lt;ruby&gt;</summary>
+            <p>Abreviaturas, tiempo, direccion de texto y anotaciones foneticas.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <p><abbr title="HyperText Markup Language">HTML</abbr></p>
+              <time datetime="2026-03-31">31/03/2026</time>
+              <p><bdo dir="rtl">texto invertido</bdo></p>
+              <p><bdi>Usuario123</bdi></p>
+              <p><ruby>漢<rt>han</rt></ruby></p>
+            </div>
+            <pre><code>&lt;p&gt;&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;&lt;/p&gt;
+&lt;time datetime="2026-03-31"&gt;31/03/2026&lt;/time&gt;
+&lt;bdo dir="rtl"&gt;texto invertido&lt;/bdo&gt;
+&lt;bdi&gt;Usuario123&lt;/bdi&gt;
+&lt;ruby&gt;漢&lt;rt&gt;han&lt;/rt&gt;&lt;/ruby&gt;</code></pre>
+          </details>
+        </section>
+
+        <section id="listas" class="categoria">
+          <h2>3) Listas</h2>
+
+          <details>
+            <summary>&lt;ul&gt; y &lt;ol&gt; con &lt;li&gt;</summary>
+            <p>Listas no ordenadas y ordenadas.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+              </ul>
+              <ol>
+                <li>Planear</li>
+                <li>Codificar</li>
+              </ol>
+            </div>
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Planear&lt;/li&gt;
+  &lt;li&gt;Codificar&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</summary>
+            <p>Lista de terminos y definiciones.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <dl>
+                <dt>Frontend</dt>
+                <dd>Parte visual de la app.</dd>
+              </dl>
+            </div>
+            <pre><code>&lt;dl&gt;
+  &lt;dt&gt;Frontend&lt;/dt&gt;
+  &lt;dd&gt;Parte visual de la app.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+          </details>
+        </section>
+
+        <section id="multimedia" class="categoria">
+          <h2>4) Multimedia</h2>
+
+          <details>
+            <summary>Imagen: &lt;img&gt;, &lt;figure&gt;, &lt;figcaption&gt;, &lt;picture&gt;</summary>
+            <p>Imagen con descripcion y fuentes adaptables.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <figure>
+                <picture>
+                  <source srcset="https://dummyimage.com/280x120/0ea5e9/ffffff" type="image/webp" />
+                  <img src="https://dummyimage.com/280x120/0284c7/ffffff" alt="Paisaje" />
+                </picture>
+                <figcaption>Paisaje de muestra</figcaption>
+              </figure>
+            </div>
+            <pre><code>&lt;figure&gt;
+  &lt;picture&gt;
+    &lt;source srcset="foto.webp" type="image/webp" /&gt;
+    &lt;img src="foto.jpg" alt="Paisaje" /&gt;
+  &lt;/picture&gt;
+  &lt;figcaption&gt;Paisaje de muestra&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>Audio: &lt;audio&gt;, &lt;source&gt;, &lt;track&gt;</summary>
+            <p>Reproductor de audio con subtitulos o metadata.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <audio controls>
+                <source src="" type="audio/mpeg" />
+              </audio>
+            </div>
+            <pre><code>&lt;audio controls&gt;
+  &lt;source src="musica.mp3" type="audio/mpeg" /&gt;
+  &lt;track kind="captions" src="audio.vtt" srclang="es" /&gt;
+&lt;/audio&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>Video: &lt;video&gt;, &lt;source&gt;, &lt;track&gt;</summary>
+            <p>Reproductor de video con subtitulos.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <video controls width="240" height="140">
+                <source src="" type="video/mp4" />
+              </video>
+            </div>
+            <pre><code>&lt;video controls width="320"&gt;
+  &lt;source src="demo.mp4" type="video/mp4" /&gt;
+  &lt;track kind="subtitles" src="subtitulos.vtt" srclang="es" /&gt;
+&lt;/video&gt;</code></pre>
+          </details>
+        </section>
+
+        <section id="tablas" class="categoria">
+          <h2>5) Tablas</h2>
+
+          <details>
+            <summary>&lt;table&gt;, &lt;caption&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;</summary>
+            <p>Estructura completa para datos tabulares.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <table class="demo-table">
+                <caption>Notas</caption>
+                <thead>
+                  <tr><th>Nombre</th><th>Nota</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Ana</td><td>95</td></tr>
+                </tbody>
+                <tfoot>
+                  <tr><td colspan="2">Fin</td></tr>
+                </tfoot>
+              </table>
+            </div>
+            <pre><code>&lt;table&gt;
+  &lt;caption&gt;Notas&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Nombre&lt;/th&gt;&lt;th&gt;Nota&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Ana&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;td colspan="2"&gt;Fin&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;colgroup&gt; y &lt;col&gt;</summary>
+            <p>Permiten definir formato de columnas.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <table class="demo-table">
+                <colgroup>
+                  <col span="1" style="background:#eef2ff;" />
+                  <col span="1" />
+                </colgroup>
+                <tr><th>Tecnologia</th><th>Nivel</th></tr>
+                <tr><td>HTML</td><td>Base</td></tr>
+              </table>
+            </div>
+            <pre><code>&lt;table&gt;
+  &lt;colgroup&gt;
+    &lt;col span="1" style="background:#eef2ff;" /&gt;
+    &lt;col span="1" /&gt;
+  &lt;/colgroup&gt;
+  &lt;tr&gt;&lt;th&gt;Tecnologia&lt;/th&gt;&lt;th&gt;Nivel&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;HTML&lt;/td&gt;&lt;td&gt;Base&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+          </details>
+        </section>
+
+        <section id="formularios" class="categoria">
+          <h2>6) Formularios HTML5</h2>
+
+          <details>
+            <summary>Estructura base: &lt;form&gt;, &lt;label&gt;, &lt;input&gt;, &lt;button&gt;</summary>
+            <p>Bloque principal para capturar datos.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <form action="#" method="post">
+                <label for="nombre-demo">Nombre</label>
+                <input id="nombre-demo" name="nombre" type="text" required />
+                <button type="submit">Enviar</button>
+              </form>
+            </div>
+            <pre><code>&lt;form action="/registro" method="post"&gt;
+  &lt;label for="nombre"&gt;Nombre&lt;/label&gt;
+  &lt;input id="nombre" name="nombre" type="text" required /&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>Tipos modernos de &lt;input&gt;</summary>
+            <p>Tipos comunes en HTML5.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <p><input type="email" placeholder="email" /> <input type="password" placeholder="password" /></p>
+              <p><input type="number" placeholder="number" /> <input type="date" /></p>
+              <p><input type="time" /> <input type="color" /></p>
+              <p><input type="range" /> <input type="search" placeholder="buscar" /></p>
+              <p><input type="url" placeholder="https://" /> <input type="tel" placeholder="telefono" /></p>
+              <p><input type="checkbox" /> Checkbox <input type="radio" name="r-demo" /> Radio</p>
+              <p><input type="file" /></p>
+            </div>
+            <pre><code>&lt;input type="email" /&gt;
+&lt;input type="password" /&gt;
+&lt;input type="number" /&gt;
+&lt;input type="date" /&gt;
+&lt;input type="time" /&gt;
+&lt;input type="color" /&gt;
+&lt;input type="range" /&gt;
+&lt;input type="search" /&gt;
+&lt;input type="url" /&gt;
+&lt;input type="tel" /&gt;
+&lt;input type="checkbox" /&gt;
+&lt;input type="radio" /&gt;
+&lt;input type="file" /&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;select&gt;, &lt;option&gt;, &lt;optgroup&gt;, &lt;textarea&gt;, &lt;datalist&gt;</summary>
+            <p>Controles de seleccion y texto largo.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <select name="framework-demo">
+                <optgroup label="Frontend">
+                  <option>React</option>
+                  <option>Vue</option>
+                </optgroup>
+              </select>
+              <p><textarea rows="3" cols="30">Comentario...</textarea></p>
+              <p>
+                <input list="navegadores-demo" placeholder="Elige navegador" />
+                <datalist id="navegadores-demo">
+                  <option value="Chrome"></option>
+                  <option value="Firefox"></option>
+                </datalist>
+              </p>
+            </div>
+            <pre><code>&lt;select name="framework"&gt;
+  &lt;optgroup label="Frontend"&gt;
+    &lt;option&gt;React&lt;/option&gt;
+    &lt;option&gt;Vue&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;
+
+&lt;textarea rows="4" cols="30"&gt;&lt;/textarea&gt;
+
+&lt;input list="navegadores" /&gt;
+&lt;datalist id="navegadores"&gt;
+  &lt;option value="Chrome"&gt;&lt;/option&gt;
+  &lt;option value="Firefox"&gt;&lt;/option&gt;
+&lt;/datalist&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;fieldset&gt;, &lt;legend&gt;, &lt;output&gt;, &lt;progress&gt;, &lt;meter&gt;</summary>
+            <p>Agrupacion y visualizacion de resultados o avance.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <fieldset>
+                <legend>Perfil</legend>
+                <label>Edad: <input type="number" /></label>
+              </fieldset>
+              <p><output>Resultado</output></p>
+              <p><progress value="70" max="100"></progress></p>
+              <p><meter value="0.6">60%</meter></p>
+            </div>
+            <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;Perfil&lt;/legend&gt;
+  &lt;label&gt;Edad: &lt;input type="number" /&gt;&lt;/label&gt;
+&lt;/fieldset&gt;
+
+&lt;output&gt;Resultado&lt;/output&gt;
+&lt;progress value="70" max="100"&gt;&lt;/progress&gt;
+&lt;meter value="0.6"&gt;60%&lt;/meter&gt;</code></pre>
+          </details>
+        </section>
+
+        <section id="interactivos" class="categoria">
+          <h2>7) Interactivos y embebidos</h2>
+
+          <details>
+            <summary>&lt;details&gt; y &lt;summary&gt;</summary>
+            <p>Desplegable sin JavaScript. Esta misma pagina lo usa.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <details>
+                <summary>Ver mas</summary>
+                <p>Contenido oculto/visible.</p>
+              </details>
+            </div>
+            <pre><code>&lt;details&gt;
+  &lt;summary&gt;Ver mas&lt;/summary&gt;
+  &lt;p&gt;Contenido oculto/visible.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;dialog&gt;</summary>
+            <p>Ventana modal nativa (normalmente se abre con JavaScript).</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <dialog open>
+                <p>Dialogo de ejemplo</p>
+              </dialog>
+            </div>
+            <pre><code>&lt;dialog open&gt;
+  &lt;p&gt;Dialogo de ejemplo&lt;/p&gt;
+&lt;/dialog&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;iframe&gt;, &lt;embed&gt;, &lt;object&gt;, &lt;param&gt;</summary>
+            <p>Insercion de recursos externos.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <iframe src="about:blank" title="Sitio embebido" width="220" height="80"></iframe>
+              <p><embed src="" type="application/pdf" /></p>
+              <object data="" type="application/pdf" width="220" height="60">
+                <param name="page" value="1" />
+              </object>
+            </div>
+            <pre><code>&lt;iframe src="https://example.com" title="Sitio embebido"&gt;&lt;/iframe&gt;
+&lt;embed src="archivo.pdf" type="application/pdf" /&gt;
+&lt;object data="archivo.pdf" type="application/pdf"&gt;
+  &lt;param name="page" value="1" /&gt;
+&lt;/object&gt;</code></pre>
+          </details>
+
+          <details>
+            <summary>&lt;canvas&gt;, &lt;svg&gt;, &lt;template&gt;</summary>
+            <p>Dibujo 2D, graficos vectoriales y plantillas reutilizables.</p>
+            <div class="vista">
+              <h4>Vista</h4>
+              <canvas width="120" height="80"></canvas>
+              <svg width="120" height="80">
+                <circle cx="40" cy="40" r="30" fill="steelblue" />
+              </svg>
+              <template id="tarjeta-demo">
+                <article>Contenido de plantilla</article>
+              </template>
+              <p class="nota">La etiqueta template no se muestra hasta ser usada desde script.</p>
+            </div>
+            <pre><code>&lt;canvas width="120" height="80"&gt;&lt;/canvas&gt;
+
+&lt;svg width="120" height="80"&gt;
+  &lt;circle cx="40" cy="40" r="30" fill="steelblue" /&gt;
+&lt;/svg&gt;
+
+&lt;template id="tarjeta"&gt;
+  &lt;article&gt;Contenido de plantilla&lt;/article&gt;
+&lt;/template&gt;</code></pre>
+          </details>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>Archivo de apoyo para clases: HTML5 en formato interactivo y copiable.</p>
+    </footer>
+  </body>
+</html>
