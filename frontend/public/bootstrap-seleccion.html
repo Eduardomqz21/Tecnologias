@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo Completo de Bootstrap 5</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      :root {
+        --bg-a: #f0fdfa;
+        --bg-b: #eff6ff;
+        --line: #a7f3d0;
+      }
+
+      body {
+        font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 90% 10%, rgba(16, 185, 129, 0.24), transparent 38%),
+          radial-gradient(circle at 5% 30%, rgba(14, 165, 233, 0.2), transparent 36%),
+          linear-gradient(150deg, var(--bg-a), var(--bg-b));
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .font-display {
+        font-family: "Sora", "Segoe UI", sans-serif;
+      }
+
+      .app-shell {
+        max-width: 1280px;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 1rem;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 14px 40px rgba(2, 6, 23, 0.1);
+      }
+
+      .hero-panel {
+        border-radius: 1.2rem;
+      }
+
+      .sticky-menu {
+        position: sticky;
+        top: 0.9rem;
+      }
+
+      .codebox {
+        background: #0b1220;
+        color: #e2e8f0;
+        border-radius: 0.75rem;
+        padding: 0.75rem;
+        margin-bottom: 0;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 0.85rem;
+        overflow-x: auto;
+      }
+
+      .component-card {
+        border: 1px solid #cbd5e1;
+        border-radius: 0.85rem;
+      }
+
+      .component-preview {
+        background: #f8fafc;
+        border-radius: 0.65rem;
+      }
+
+      .pattern-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+      }
+
+      .swal2-container {
+        z-index: 1300;
+      }
+
+      .intro-list li + li {
+        margin-top: 0.4rem;
+      }
+
+      @media (max-width: 991px) {
+        .sticky-menu {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container app-shell py-4 py-md-5">
+      <header class="glass hero-panel p-4 p-md-5 mb-4">
+        <p class="text-uppercase text-success fw-semibold mb-1">Módulo 02 Expandido</p>
+        <h1 class="display-6 fw-bold mb-3">Bootstrap 5 completo: ejemplos + código</h1>
+        <p class="lead mb-3">
+          Esta página sigue la lógica de la documentación oficial: explicación clara,
+          ejemplo renderizado y bloque de código por cada tema.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-success" href="/">Volver al inicio</a>
+          <button class="btn btn-outline-dark" id="btn-alerta-guia">Alerta de bienvenida</button>
+        </div>
+      </header>
+
+      <div class="row g-4">
+        <aside class="col-12 col-xl-3">
+          <nav class="glass sticky-menu p-3">
+            <h2 class="h5 mb-3">Índice</h2>
+            <ul class="mb-0">
+              <li><a href="#setup">1. Getting started</a></li>
+              <li><a href="#layout">2. Layout</a></li>
+              <li><a href="#content">3. Content</a></li>
+              <li><a href="#forms">4. Formularios</a></li>
+              <li><a href="#components">5. Todos los componentes</a></li>
+              <li><a href="#helpers">6. Helpers</a></li>
+              <li><a href="#utilities">7. Utilities</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <section class="col-12 col-xl-9">
+          <article class="glass p-3 p-md-4 mb-3">
+            <h2 class="h4">¿Cómo leer esta guía si estás empezando?</h2>
+            <ul class="intro-list mb-0">
+              <li>Primero lee la explicación breve para entender el objetivo del bloque.</li>
+              <li>Después mira el ejemplo visual para ver cómo se comporta en pantalla.</li>
+              <li>Al final copia el código y pruébalo en tu proyecto.</li>
+              <li>Repite este ciclo tema por tema hasta dominar la estructura completa.</li>
+            </ul>
+          </article>
+
+          <article id="setup" class="glass p-3 p-md-4 mb-3">
+            <h2 class="h4">1) Getting started</h2>
+            <p class="mb-2">
+              Bootstrap funciona con enfoque mobile first. Eso significa que diseñas primero para
+              pantallas pequeñas y luego escalas a tablet y escritorio con breakpoints.
+              Para iniciar solo necesitas doctype HTML5, meta viewport y los enlaces CDN.
+            </p>
+            <pre class="codebox"><code>&lt;!doctype html&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" /&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+          </article>
+
+          <article id="layout" class="glass p-3 p-md-4 mb-3">
+            <h2 class="h4">2) Layout</h2>
+            <p>
+              El layout de Bootstrap se basa en contenedores, filas y columnas. Un patrón muy usado
+              es <strong>col-12 col-md-6 col-xl-4</strong>: una columna en móvil, dos en tablet y tres en escritorio.
+              Así logras un diseño responsivo sin escribir media queries desde cero.
+            </p>
+            <div class="pattern-grid mb-3">
+              <div class="p-2 bg-success-subtle rounded">col-12</div>
+              <div class="p-2 bg-info-subtle rounded">col-md-6</div>
+              <div class="p-2 bg-warning-subtle rounded">col-xl-4</div>
+            </div>
+            <pre class="codebox"><code>&lt;div class="container"&gt;
+  &lt;div class="row g-3"&gt;
+    &lt;div class="col-12 col-md-6 col-xl-4"&gt;Bloque A&lt;/div&gt;
+    &lt;div class="col-12 col-md-6 col-xl-4"&gt;Bloque B&lt;/div&gt;
+    &lt;div class="col-12 col-md-6 col-xl-4"&gt;Bloque C&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </article>
+
+          <article id="content" class="glass p-3 p-md-4 mb-3">
+            <h2 class="h4">3) Content</h2>
+            <p>
+              Esta capa incluye tipografía, tablas, imágenes y el reset base (Reboot).
+              En la práctica te ayuda a mantener consistencia visual entre navegadores y
+              una lectura más limpia del contenido.
+            </p>
+            <div class="table-responsive">
+              <table class="table table-striped table-hover mb-2">
+                <thead>
+                  <tr>
+                    <th>Area</th>
+                    <th>Clases clave</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tipografia</td>
+                    <td>display-*, lead, fw-*, text-*</td>
+                  </tr>
+                  <tr>
+                    <td>Tablas</td>
+                    <td>table, table-striped, table-responsive</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="codebox"><code>&lt;h2 class="display-6"&gt;Titulo&lt;/h2&gt;
+&lt;p class="lead"&gt;Texto introductorio&lt;/p&gt;
+&lt;table class="table table-striped"&gt;...&lt;/table&gt;</code></pre>
+          </article>
+
+          <article id="forms" class="glass p-3 p-md-4 mb-3">
+            <h2 class="h4">4) Formularios</h2>
+            <p class="mb-2">
+              Aquí puedes ver validación visual en tiempo real. Cuando escribes, cada campo cambia
+              entre <strong>is-valid</strong> y <strong>is-invalid</strong>; al enviar, el formulario aplica
+              <strong>was-validated</strong> y muestra feedback completo.
+            </p>
+            <form id="demo-form" class="row g-3 needs-validation" novalidate>
+              <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input id="nombre" class="form-control" required minlength="3" />
+                <div class="valid-feedback">Nombre válido.</div>
+                <div class="invalid-feedback">Escribe al menos 3 caracteres.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="correo" class="form-label">Correo</label>
+                <input id="correo" type="email" class="form-control" required />
+                <div class="valid-feedback">Correo válido.</div>
+                <div class="invalid-feedback">Ingresa un correo valido.</div>
+              </div>
+              <div class="col-12">
+                <label for="tema" class="form-label">Tema</label>
+                <select id="tema" class="form-select" required>
+                  <option value="">Selecciona un tema</option>
+                  <option>Grid</option>
+                  <option>Formularios</option>
+                  <option>Components</option>
+                </select>
+                <div class="invalid-feedback">Debes elegir una opción.</div>
+              </div>
+              <div class="col-12">
+                <div id="tema-info" class="alert alert-secondary mb-0" role="status">
+                  Selecciona un tema para ver una explicación corta de para qué sirve.
+                </div>
+              </div>
+              <div class="col-12 d-flex flex-wrap gap-2">
+                <button class="btn btn-success" type="submit">Validar y enviar</button>
+                <button class="btn btn-outline-secondary" type="reset">Resetear</button>
+              </div>
+            </form>
+            <pre class="codebox mt-3"><code>&lt;form class="needs-validation" novalidate&gt;
+  &lt;input class="form-control" required /&gt;
+  &lt;div class="invalid-feedback"&gt;Campo requerido&lt;/div&gt;
+&lt;/form&gt;
+
+form.classList.add("was-validated")</code></pre>
+          </article>
+
+          <article id="components" class="glass p-3 p-md-4 mb-3">
+            <h2 class="h4">5) Todos los componentes de Bootstrap 5</h2>
+            <p>
+              A continuación tienes el catálogo completo de componentes: en cada tarjeta verás
+              para qué sirve, una vista rápida y un código mínimo para practicar.
+            </p>
+            <div id="components-grid" class="row g-3"></div>
+          </article>
+
+          <article id="helpers" class="glass p-3 p-md-4 mb-3">
+            <h2 class="h4">6) Helpers</h2>
+            <p>
+              Los helpers resuelven situaciones comunes sin escribir CSS extra: ratio para embeds
+              responsivos, position para superposiciones, visually-hidden para accesibilidad y
+              stretched-link para ampliar el área clickeable.
+            </p>
+            <pre class="codebox"><code>&lt;div class="ratio ratio-16x9"&gt;
+  &lt;iframe src="..." title="video"&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+          </article>
+
+          <article id="utilities" class="glass p-3 p-md-4">
+            <h2 class="h4">7) Utilities</h2>
+            <p>
+              Las utilities son el corazón de productividad: spacing, display, flex, text, color,
+              border, shadow, rounded, opacity, overflow, sizing y z-index.
+              Con ellas puedes construir interfaces completas con clases reutilizables.
+            </p>
+            <pre class="codebox"><code>&lt;div class="d-flex justify-content-between align-items-center p-3 rounded-3 shadow-sm bg-white"&gt;
+  &lt;span class="fw-semibold"&gt;Card compacta&lt;/span&gt;
+  &lt;span class="badge text-bg-success"&gt;Activa&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+          </article>
+        </section>
+      </div>
+    </main>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="demoOffcanvas" aria-labelledby="demoOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="demoOffcanvasLabel">Offcanvas de ejemplo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">Contenido lateral para navegación o filtros.</div>
+    </div>
+
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal de ejemplo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">Este es un modal básico de Bootstrap.</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="demoToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Bootstrap</strong>
+          <small>ahora</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">Toast de ejemplo renderizado correctamente.</div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const btnAlertaGuia = document.getElementById("btn-alerta-guia");
+      const componentsGrid = document.getElementById("components-grid");
+      const demoForm = document.getElementById("demo-form");
+      const temaSelect = document.getElementById("tema");
+      const temaInfo = document.getElementById("tema-info");
+
+      const whenToUse = {
+        Accordion: "Úsalo cuando tengas preguntas frecuentes o bloques extensos que quieras compactar.",
+        Alerts: "Úsalo para avisos inmediatos dentro del flujo de la página.",
+        Badge: "Úsalo para contadores, estados o etiquetas breves.",
+        Breadcrumb: "Úsalo para mostrar ubicación en una jerarquía de navegación.",
+        Buttons: "Úsalo para acciones principales y secundarias.",
+        "Button group": "Úsalo cuando varias acciones pequeñas pertenecen al mismo contexto.",
+        Card: "Úsalo para agrupar información modular en bloques reutilizables.",
+        Carousel: "Úsalo para destacar varias piezas visuales en un área limitada.",
+        "Close button": "Úsalo para cerrar avisos, modales o paneles.",
+        Collapse: "Úsalo para mostrar detalles bajo demanda.",
+        Dropdown: "Úsalo para opciones compactas en navegación o acciones.",
+        "List group": "Úsalo para listados de elementos homogéneos.",
+        Modal: "Úsalo para decisiones importantes que requieren foco.",
+        "Navs and tabs": "Úsalo para dividir contenido por secciones sin cambiar de página.",
+        Navbar: "Úsalo como cabecera principal de navegación.",
+        Offcanvas: "Úsalo para menús laterales en móvil o filtros avanzados.",
+        Pagination: "Úsalo cuando el listado tiene muchas páginas.",
+        Placeholders: "Úsalo para simular contenido mientras carga.",
+        Popovers: "Úsalo para contexto extra con interacción puntual.",
+        Progress: "Úsalo para reflejar avance de tareas o procesos.",
+        Scrollspy: "Úsalo en documentación larga con menú de secciones.",
+        Spinners: "Úsalo para indicar espera durante operaciones asíncronas.",
+        Toasts: "Úsalo para notificaciones breves no bloqueantes.",
+        Tooltips: "Úsalo para aclaraciones cortas al pasar el cursor."
+      };
+
+      const temaDescriptions = {
+        Grid: {
+          tone: "primary",
+          text: "Grid te sirve para organizar contenido en filas y columnas. Es la base para crear diseños responsivos sin escribir media queries desde cero."
+        },
+        Formularios: {
+          tone: "success",
+          text: "Formularios te ayuda a presentar campos, validaciones y mensajes de ayuda de forma ordenada y clara."
+        },
+        Components: {
+          tone: "warning",
+          text: "Components reúne piezas listas para usar como tarjetas, alertas, modales y menús. Te permite construir más rápido con un estilo consistente."
+        }
+      };
+
+      function updateTemaInfo() {
+        const selection = temaSelect.value;
+        const info = temaDescriptions[selection];
+
+        if (!info) {
+          temaInfo.className = "alert alert-secondary mb-0";
+          temaInfo.textContent = "Selecciona un tema para ver una explicación corta de para qué sirve.";
+          return;
+        }
+
+        temaInfo.className = `alert alert-${info.tone} mb-0`;
+        temaInfo.textContent = info.text;
+      }
+
+      const componentCatalog = [
+        {
+          name: "Accordion",
+          desc: "Bloques desplegables para FAQs o secciones largas.",
+          preview: '<div class="accordion" id="a1"><div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">Item</button></h2><div id="c1" class="accordion-collapse collapse show" data-bs-parent="#a1"><div class="accordion-body">Contenido</div></div></div></div>',
+          code: '<div class="accordion">...</div>'
+        },
+        { name: "Alerts", desc: "Mensajes de estado en contexto.", preview: '<div class="alert alert-success mb-0" role="alert">Operacion exitosa.</div>', code: '<div class="alert alert-success" role="alert">...</div>' },
+        { name: "Badge", desc: "Etiquetas compactas para contadores/estado.", preview: '<span class="badge text-bg-primary">Nuevo</span>', code: '<span class="badge text-bg-primary">Nuevo</span>' },
+        { name: "Breadcrumb", desc: "Ruta de navegacion jerarquica.", preview: '<nav><ol class="breadcrumb mb-0"><li class="breadcrumb-item">Inicio</li><li class="breadcrumb-item active">Bootstrap</li></ol></nav>', code: '<ol class="breadcrumb">...</ol>' },
+        { name: "Buttons", desc: "Acciones principales y secundarias.", preview: '<button class="btn btn-primary btn-sm me-1">Primario</button><button class="btn btn-outline-secondary btn-sm">Secundario</button>', code: '<button class="btn btn-primary">...</button>' },
+        { name: "Button group", desc: "Agrupa acciones relacionadas.", preview: '<div class="btn-group" role="group"><button class="btn btn-outline-primary btn-sm">Izq</button><button class="btn btn-outline-primary btn-sm">Centro</button><button class="btn btn-outline-primary btn-sm">Der</button></div>', code: '<div class="btn-group">...</div>' },
+        { name: "Card", desc: "Contenedor flexible para contenido modular.", preview: '<div class="card"><div class="card-body"><h5 class="card-title mb-1">Tarjeta</h5><p class="card-text mb-0">Contenido breve.</p></div></div>', code: '<div class="card"><div class="card-body">...</div></div>' },
+        { name: "Carousel", desc: "Slider para banners o galerias.", preview: '<div id="carDemo" class="carousel slide"><div class="carousel-inner"><div class="carousel-item active"><div class="p-3 bg-info-subtle rounded">Slide 1</div></div><div class="carousel-item"><div class="p-3 bg-warning-subtle rounded">Slide 2</div></div></div><button class="carousel-control-prev" type="button" data-bs-target="#carDemo" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" type="button" data-bs-target="#carDemo" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div>', code: '<div class="carousel slide">...</div>' },
+        { name: "Close button", desc: "Boton universal para cerrar elementos.", preview: '<button class="btn-close" aria-label="Cerrar"></button>', code: '<button class="btn-close"></button>' },
+        { name: "Collapse", desc: "Muestra/oculta contenido sin recargar.", preview: '<p><button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#colx">Toggle</button></p><div class="collapse" id="colx"><div class="card card-body">Contenido ocultable.</div></div>', code: '<button data-bs-toggle="collapse" data-bs-target="#id">...</button>' },
+        { name: "Dropdown", desc: "Menus contextuales.", preview: '<div class="dropdown"><button class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown">Menu</button><ul class="dropdown-menu"><li><a class="dropdown-item" href="#">Accion</a></li></ul></div>', code: '<div class="dropdown">...</div>' },
+        { name: "List group", desc: "Listas estilizadas de items.", preview: '<ul class="list-group"><li class="list-group-item">Item 1</li><li class="list-group-item">Item 2</li></ul>', code: '<ul class="list-group">...</ul>' },
+        { name: "Modal", desc: "Dialogos para acciones importantes.", preview: '<button class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#demoModal">Abrir modal</button>', code: '<button data-bs-toggle="modal" data-bs-target="#demoModal">...</button>' },
+        { name: "Navs and tabs", desc: "Navegacion entre bloques de contenido.", preview: '<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" href="#">Activo</a></li><li class="nav-item"><a class="nav-link" href="#">Otro</a></li></ul>', code: '<ul class="nav nav-tabs">...</ul>' },
+        { name: "Navbar", desc: "Cabecera de navegacion responsive.", preview: '<nav class="navbar navbar-expand-lg bg-body-tertiary rounded"><div class="container-fluid"><a class="navbar-brand" href="#">Brand</a></div></nav>', code: '<nav class="navbar navbar-expand-lg">...</nav>' },
+        { name: "Offcanvas", desc: "Panel lateral para menu/filtros.", preview: '<button class="btn btn-sm btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#demoOffcanvas">Abrir offcanvas</button>', code: '<button data-bs-toggle="offcanvas" data-bs-target="#demoOffcanvas">...</button>' },
+        { name: "Pagination", desc: "Paginacion de listados.", preview: '<nav><ul class="pagination mb-0"><li class="page-item"><a class="page-link" href="#">1</a></li><li class="page-item active"><a class="page-link" href="#">2</a></li></ul></nav>', code: '<ul class="pagination">...</ul>' },
+        { name: "Placeholders", desc: "Skeleton de carga.", preview: '<span class="placeholder col-6"></span><span class="placeholder col-4 bg-success"></span>', code: '<span class="placeholder col-6"></span>' },
+        { name: "Popovers", desc: "Overlay con titulo y contenido.", preview: '<button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="popover" data-bs-title="Popover" data-bs-content="Contenido breve">Abrir popover</button>', code: '<button data-bs-toggle="popover" data-bs-content="...">...</button>' },
+        { name: "Progress", desc: "Barra de progreso visual.", preview: '<div class="progress" role="progressbar"><div class="progress-bar" style="width: 65%;">65%</div></div>', code: '<div class="progress"><div class="progress-bar" style="width: 65%"></div></div>' },
+        { name: "Scrollspy", desc: "Sincroniza scroll con navegacion.", preview: '<small class="text-muted">Requiere layout mas extenso; se usa en docs largas.</small>', code: '<body data-bs-spy="scroll" data-bs-target="#menu">...</body>' },
+        { name: "Spinners", desc: "Indicadores de carga.", preview: '<div class="spinner-border spinner-border-sm me-2" role="status"></div><div class="spinner-grow spinner-grow-sm" role="status"></div>', code: '<div class="spinner-border" role="status"></div>' },
+        { name: "Toasts", desc: "Notificaciones no bloqueantes.", preview: '<button class="btn btn-sm btn-outline-success" id="btnToast">Mostrar toast</button>', code: 'const toast = new bootstrap.Toast("#demoToast"); toast.show();' },
+        { name: "Tooltips", desc: "Texto contextual al pasar cursor.", preview: '<button class="btn btn-sm btn-outline-secondary" data-bs-toggle="tooltip" title="Tooltip activo">Hover</button>', code: '<button data-bs-toggle="tooltip" title="...">...</button>' }
+      ];
+
+      function renderCatalog() {
+        componentCatalog.forEach(item => {
+          const useText = whenToUse[item.name] || "Úsalo cuando quieras simplificar el diseño con un patrón de Bootstrap.";
+          const col = document.createElement("article");
+          col.className = "col-12 col-md-6";
+          col.innerHTML = `
+            <div class="component-card p-3 h-100 bg-white">
+              <h3 class="h6 mb-1">${item.name}</h3>
+              <p class="small text-secondary mb-2">${item.desc}</p>
+              <p class="small mb-2"><strong>Cuándo usarlo:</strong> ${useText}</p>
+              <div class="component-preview p-2 mb-2">${item.preview}</div>
+              <pre class="codebox"><code></code></pre>
+            </div>
+          `;
+
+          col.querySelector("code").textContent = item.code;
+          componentsGrid.appendChild(col);
+        });
+      }
+
+      function setupFormValidation() {
+        const fields = Array.from(demoForm.querySelectorAll("input, select, textarea"));
+
+        const markFieldState = field => {
+          if (!field.willValidate) {
+            return;
+          }
+
+          if (field.checkValidity()) {
+            field.classList.remove("is-invalid");
+            field.classList.add("is-valid");
+          } else {
+            field.classList.remove("is-valid");
+            field.classList.add("is-invalid");
+          }
+        };
+
+        fields.forEach(field => {
+          field.addEventListener("input", () => markFieldState(field));
+          field.addEventListener("change", () => markFieldState(field));
+        });
+
+        temaSelect.addEventListener("change", () => {
+          updateTemaInfo();
+          markFieldState(temaSelect);
+        });
+
+        demoForm.addEventListener("submit", event => {
+          event.preventDefault();
+          demoForm.classList.add("was-validated");
+          fields.forEach(markFieldState);
+
+          if (!demoForm.checkValidity()) {
+            Swal.fire({
+              icon: "warning",
+              title: "Formulario incompleto",
+              text: "Revisa los campos marcados en rojo y completa la información requerida."
+            });
+            return;
+          }
+
+          Swal.fire({
+            icon: "success",
+            title: "Formulario válido",
+            text: "Excelente. La validación visual y la alerta están funcionando correctamente."
+          });
+        });
+
+        demoForm.addEventListener("reset", () => {
+          demoForm.classList.remove("was-validated");
+          fields.forEach(field => {
+            field.classList.remove("is-valid", "is-invalid");
+          });
+          updateTemaInfo();
+        });
+      }
+
+      btnAlertaGuia.addEventListener("click", () => {
+        Swal.fire({
+          icon: "info",
+          title: "Catálogo cargado",
+          text: "Aquí encontrarás todos los componentes de Bootstrap 5 con ejemplos y código base."
+        });
+      });
+
+      document.addEventListener("click", event => {
+        if (event.target && event.target.id === "btnToast") {
+          bootstrap.Toast.getOrCreateInstance(document.getElementById("demoToast")).show();
+        }
+      });
+
+      renderCatalog();
+      setupFormValidation();
+      updateTemaInfo();
+
+      document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+        bootstrap.Tooltip.getOrCreateInstance(el);
+      });
+
+      document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el => {
+        bootstrap.Popover.getOrCreateInstance(el);
+      });
+    </script>
+  </body>
+</html>
