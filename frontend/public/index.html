@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Presentacion de Tecnologias</title>
+    <title>Tecnologías Web | Inicio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,18 +66,42 @@
     <main class="container py-4 py-md-5">
       <section class="hero p-4 p-md-5 mb-4">
         <span class="badge badge-signal rounded-pill mb-3">Tecnologias Web 2026</span>
-        <h1 class="display-5 fw-bold mb-3">Ruta visual de frontend + backend</h1>
+        <h1 class="display-5 fw-bold mb-3">Tecnologías Web: HTML, Bootstrap, SweetAlert2 y Node.js</h1>
         <p class="lead mb-4">
-          Desde HTML5 semantico hasta componentes Bootstrap modernos y conexion con Node.js.
+          Un recorrido claro y ordenado para aprender desde la estructura básica de una página hasta
+          la interacción visual y la conexión con el servidor.
         </p>
 
         <div class="d-flex flex-wrap gap-2 mb-4">
-          <button id="load-data" class="btn btn-primary">Cargar tecnologias del backend</button>
+          <button id="load-data" class="btn btn-primary">Ver estado del backend</button>
           <a href="/html5-seleccion.html" class="btn btn-outline-secondary">Guia interactiva HTML5</a>
           <a href="/bootstrap-seleccion.html" class="btn btn-outline-dark">Guia interactiva Bootstrap</a>
+          <a href="/sweetalert2-seleccion.html" class="btn btn-outline-warning">Guia interactiva SweetAlert2</a>
         </div>
 
-        <pre id="output" class="bg-dark text-light rounded p-3 mb-0">Esperando datos...</pre>
+        <div class="row g-3">
+          <div class="col-12 col-lg-7">
+            <div class="quick-card p-3 h-100">
+              <h2 class="h5 mb-2">Respuesta del backend</h2>
+              <p class="mb-3">
+                Aquí puedes comprobar que el servidor está respondiendo y ver el JSON que alimenta la
+                página principal.
+              </p>
+              <pre id="output" class="bg-dark text-light rounded p-3 mb-0">Esperando respuesta del servidor...</pre>
+            </div>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="quick-card p-3 h-100">
+              <h2 class="h5 mb-2">Qué contiene este proyecto</h2>
+              <ul class="mb-0 ps-3">
+                <li>Guía de HTML y CSS</li>
+                <li>Guía de Bootstrap 5</li>
+                <li>Guía de SweetAlert2</li>
+                <li>Servidor Node.js con endpoint JSON</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="row g-3">
@@ -98,8 +122,11 @@
         <article class="col-12 col-md-6 col-xl-4">
           <div class="quick-card h-100 p-3">
             <h2 class="h5">03. Alertas con SweetAlert2</h2>
-            <p class="mb-2">Se iran usando en formularios, confirmaciones y feedback visual.</p>
-            <button id="demo-swal" class="btn btn-sm btn-outline-primary">Ver demo rapido</button>
+            <p class="mb-2">Se irán usando en formularios, confirmaciones y feedback visual.</p>
+            <div class="d-flex flex-wrap gap-2">
+              <button id="demo-swal" class="btn btn-sm btn-outline-primary">Ver ejemplo</button>
+              <a href="/sweetalert2-seleccion.html" class="btn btn-sm btn-outline-warning">Abrir guía</a>
+            </div>
           </div>
         </article>
       </section>
@@ -148,7 +175,7 @@
         Swal.fire({
           icon: "info",
           title: "SweetAlert2 activo",
-          text: "A partir de ahora las paginas nuevas incluiran alertas modernas y feedback visual."
+          text: "La interfaz del proyecto ya usa alertas modernas y feedback visual."
         });
       });
     </script>

@@ -1,29 +1,35 @@
 # 02 - Frontend Frameworks (Bootstrap)
 
-Objetivo del modulo:
-- Entender que problema resuelven los frameworks CSS/JS en proyectos reales.
-- Dominar Bootstrap 5 para construir interfaces modernas y responsivas.
-- Preparar base visual consistente para integrar alertas con SweetAlert2.
+Esta sección explica Bootstrap de una forma práctica y fácil de seguir.
 
-## Ruta sugerida de clase
+## ¿Qué es Bootstrap?
 
-1. Por que usar un framework frontend
-- Estandariza layout, tipografia y componentes.
-- Reduce tiempo de desarrollo visual.
-- Mejora consistencia entre pantallas.
+Bootstrap es una colección de clases y componentes que ayuda a construir interfaces modernas sin escribir todo el CSS desde cero.
 
-2. Bootstrap: mapa completo
-- Getting started: CDN, doctype, viewport, mobile first.
-- Layout: containers, grid, breakpoints, gutters.
-- Content: tipografia, tablas, imagenes.
-- Forms: controles, checks/radios, select, validacion.
-- Components: accordion, alerts, badges, buttons, cards, carousel, collapse, dropdown,
-	list group, modal, navbar, offcanvas, pagination, progress, spinners, toasts,
-	tooltips y popovers.
-- Helpers: ratio, position, visually-hidden, focus-ring, stretched-link.
-- Utilities: spacing, flex, display, text, color, borders, shadow, sizing.
+## ¿Por qué usarlo?
 
-### Componentes oficiales Bootstrap 5 (lista completa para exposicion)
+- Ahorra tiempo.
+- Da un diseño más uniforme.
+- Ayuda a que la página se vea bien en móvil, tablet y escritorio.
+
+## Qué debe aprender una persona nueva
+
+1. Cómo incluir Bootstrap en una página.
+2. Cómo usar el grid para ordenar contenido.
+3. Cómo usar componentes listos como botones, alertas, tarjetas y formularios.
+4. Cómo usar utilidades para ajustar espacio, color y alineación.
+
+## Mapa de Bootstrap 5
+
+- **Getting started**: cómo iniciar con CDN, doctype y viewport.
+- **Layout**: contenedores, filas, columnas y breakpoints.
+- **Content**: tipografía, tablas e imágenes.
+- **Forms**: inputs, selects, checks, radios y validación.
+- **Components**: accordion, alerts, badges, buttons, cards, carousel, collapse, dropdowns, list group, modal, navbar, offcanvas, pagination, placeholders, popovers, progress, scrollspy, spinners, toasts y tooltips.
+- **Helpers**: helpers para accesibilidad, proporciones y enlaces extendidos.
+- **Utilities**: clases rápidas para espaciado, flex, texto, color, bordes y más.
+
+## Lista completa de componentes
 
 - Accordion
 - Alerts
@@ -50,46 +56,34 @@ Objetivo del modulo:
 - Toasts
 - Tooltips
 
-## Metodologia para cada componente en clase
+## Cómo estudiar cada componente
 
-Para mantener el mismo estilo de la documentacion oficial:
+Para cada uno conviene repetir este orden:
 
-1. Definicion corta: para que sirve en UX/UI.
-2. Ejemplo visual renderizado: para verlo en contexto.
-3. Codigo minimo: para copiar y pegar.
-4. Nota de uso real: cuando conviene usarlo y cuando no.
+1. Leer la idea general.
+2. Ver el ejemplo visual.
+3. Revisar el código mínimo.
+4. Pensar en un caso real donde se usaría.
 
-## Explicacion ampliada del formulario
+## Formularios y validación visual
 
-Problema comun detectado:
-- "No cambia nada" pasa cuando solo se usa `checkValidity()` sin aplicar clases visuales.
+En la práctica, un formulario no solo debe capturar datos. También debe decirle al usuario qué está bien y qué está mal.
 
-Solucion aplicada:
-- Se agrega `needs-validation` y `novalidate` al formulario.
-- En envio se aplica `was-validated`.
-- En cada input/select se alterna `is-valid` / `is-invalid` en tiempo real.
-- Se mantiene feedback con SweetAlert2 para exito/error.
+La guía interactiva aplica este flujo:
 
-Resultado:
-- El usuario ahora ve cambios claros en campos (verde/rojo) al escribir y al enviar.
+- `needs-validation` para activar el estilo de validación.
+- `novalidate` para controlar el comportamiento desde JavaScript.
+- `was-validated` cuando se envía el formulario.
+- `is-valid` y `is-invalid` para mostrar el estado de cada campo.
+- SweetAlert2 para reforzar el mensaje final.
 
-3. Comparacion breve con React, Vue y Angular
-- Bootstrap: solucion UI inmediata basada en clases.
-- React/Vue/Angular: solucion de arquitectura y estado para aplicaciones complejas.
+## Cuándo usar Bootstrap y cuándo no
 
-4. Criterio de eleccion
-- Sitio informativo o dashboard simple: Bootstrap + JS ligero.
-- App compleja con estado y rutas avanzadas: framework completo.
+- Sitio informativo, landing, panel simple o prototipo: Bootstrap funciona muy bien.
+- Aplicación muy grande con lógica compleja de estado: probablemente necesites una arquitectura más completa.
 
 ## Recursos del proyecto
 
-- Guia interactiva principal:
-	- `frontend/public/bootstrap-seleccion.html`
-- Portada actualizada:
-	- `frontend/public/index.html`
-
-## Convencion para paginas nuevas
-
-- Todas las paginas deben ser modernas y responsivas por defecto.
-- Incluir feedback visual claro en acciones del usuario.
-- Priorizar SweetAlert2 para confirmaciones, errores y estado de procesos.
+- Guía de Bootstrap: [frontend/public/bootstrap-seleccion.html](frontend/public/bootstrap-seleccion.html)
+- Guía de SweetAlert2: [frontend/public/sweetalert2-seleccion.html](frontend/public/sweetalert2-seleccion.html)
+- Portada general: [frontend/public/index.html](frontend/public/index.html)
