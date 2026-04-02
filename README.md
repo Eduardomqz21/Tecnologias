@@ -1,69 +1,56 @@
-# Presentacion de Tecnologias Web
+# Presentación de Tecnologías Web
 
-Repositorio base para explicar desarrollo web de forma progresiva: desde HTML basico hasta conexion frontend-backend con Node.js.
+Este repositorio está pensado para enseñar desarrollo web paso a paso, desde lo más básico hasta una pequeña integración entre frontend y backend.
 
-## Objetivo
+## ¿Qué vas a encontrar aquí?
 
-Construir una presentacion tipo tutorial que muestre:
-- Fundamentos de HTML/CSS
-- Uso de un framework frontend (Bootstrap)
-- Conceptos de backend con Node.js
-- Comunicacion entre frontend y backend
+La idea es que una persona que empieza pueda abrir el proyecto y entenderlo por partes:
+
+1. Qué es el desarrollo web.
+2. Cómo funciona HTML y CSS.
+3. Cómo se usa Bootstrap para construir interfaces responsivas.
+4. Cómo se muestran alertas modernas con SweetAlert2.
+5. Cómo se conecta el frontend con un servidor hecho en Node.js.
 
 ## Requisitos
 
-- Node.js 18 o superior
-- Git
+- Node.js 18 o superior.
+- Git.
 
-## Como clonar el repositorio
+## Cómo ejecutar el proyecto
 
-```bash
-git clone https://github.com/TU-USUARIO/Tecnologias-1.git
-cd Tecnologias
-```
-
-## Como ejecutar el proyecto
-
-1. Instalar dependencias (en este caso no hay dependencias externas, pero se deja el flujo estandar):
+1. Instala dependencias:
 
 ```bash
 npm install
 ```
 
-2. Levantar el servidor:
+2. Inicia el servidor:
 
 ```bash
 npm start
 ```
 
-3. Abrir en el navegador:
+3. Abre el navegador en:
 
 ```text
 http://localhost:3000
 ```
 
-## Modo desarrollo
-
-```bash
-npm run dev
-```
-
-## Si el puerto 3000 esta ocupado
-
-En PowerShell puedes iniciar en otro puerto asi:
+Si el puerto 3000 ya está ocupado, puedes usar otro:
 
 ```powershell
 $env:PORT=3001
 npm start
 ```
 
-Luego abre:
+Y luego abrir:
 
 ```text
 http://localhost:3001
 ```
 
-## Estructura del proyecto
+## Estructura general
 
 ```text
 Tecnologias-1/
@@ -74,6 +61,8 @@ Tecnologias-1/
 |   `-- public/
 |       `-- index.html
 |       `-- html5-seleccion.html
+|       `-- bootstrap-seleccion.html
+|       `-- sweetalert2-seleccion.html
 |-- docs/
 |   |-- 00-introduccion/
 |   |   `-- README.md
@@ -84,33 +73,39 @@ Tecnologias-1/
 |   `-- 03-backend-nodejs/
 |       `-- README.md
 |-- scripts/
-|-- .gitignore
 |-- package.json
 `-- README.md
 ```
 
-## Flujo recomendado para la presentacion
+## Ruta recomendada de estudio
 
-1. Empezar con `docs/00-introduccion`
-2. Pasar a fundamentos en `docs/01-html-css`
-3. Mostrar componentes y layout en `docs/02-frontend-frameworks`
-4. Explicar servidor y API en `docs/03-backend-nodejs`
-5. Demostrar la integracion en `frontend/public/index.html` consumiendo `/api/tecnologias`
+1. Empieza por [docs/00-introduccion/README.md](docs/00-introduccion/README.md).
+2. Sigue con [docs/01-html-css/README.md](docs/01-html-css/README.md).
+3. Después revisa [docs/02-frontend-frameworks/README.md](docs/02-frontend-frameworks/README.md).
+4. Continúa con [docs/03-backend-nodejs/README.md](docs/03-backend-nodejs/README.md).
+5. Abre la portada en [frontend/public/index.html](frontend/public/index.html) para ver los accesos directos.
 
-## Que incluye la demo actual
+## Qué incluye la demo actual
 
-- Un servidor en Node.js puro (`http`) que:
-  - Sirve archivos estaticos desde `frontend/public`
-  - Expone endpoint JSON: `/api/tecnologias`
-- Una pagina HTML de prueba con Bootstrap que:
-  - Muestra interfaz inicial
-  - Consulta datos del backend usando `fetch()`
-- Una guia interactiva de HTML5 (sin JavaScript) en:
-  - `/html5-seleccion.html`
-  - Uso: clic en cada bloque para ver definicion y codigo copiable
+- Un servidor Node.js que sirve los archivos de `frontend/public`.
+- Un endpoint JSON en `/api/tecnologias`.
+- Una portada principal moderna con Bootstrap.
+- Una guía interactiva de HTML5.
+- Una guía interactiva de Bootstrap 5.
+- Una guía interactiva de SweetAlert2.
 
-## Proximos pasos sugeridos
+## Idea del proyecto
 
-- Agregar diapositivas o guiones en cada carpeta de `docs/`
-- Crear ejemplos practicos por tema (ej: formularios, tablas, rutas)
-- Agregar una rama por modulo para mostrar la evolucion del proyecto
+La intención no es solo mostrar código, sino enseñar cómo se conectan las piezas:
+
+- HTML define la estructura.
+- CSS y Bootstrap dan forma visual.
+- SweetAlert2 mejora la experiencia de usuario.
+- Node.js entrega datos y contenido.
+
+## Próximos pasos sugeridos
+
+- Agregar más páginas interactivas por cada tema.
+- Incluir ejemplos de formularios con validación.
+- Conectar más acciones visuales con el backend.
+- Convertir cada tema en una sección lista para exponer en clase.
